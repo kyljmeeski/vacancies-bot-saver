@@ -1,9 +1,6 @@
 package com.kyljmeeski.vacanciesbot.saver;
 
-import com.kyljmeeski.rabbitmqwrapper.Consumer;
-import com.kyljmeeski.rabbitmqwrapper.PlainConsumer;
-import com.kyljmeeski.rabbitmqwrapper.Queues;
-import com.kyljmeeski.rabbitmqwrapper.RabbitQueue;
+import com.kyljmeeski.rabbitmqwrapper.*;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -27,12 +24,20 @@ public class Main {
             MongoDatabase database = mongoClient.getDatabase("vacancies");
             Vacancies vacancies = new Vacancies(database);
 
+            Exchanges exchanges = new Exchanges(connection);
+            RabbitExchange exchange = exchanges.declare("vacancies", "direct");
             Queues queues = new Queues(connection);
             try {
                 RabbitQueue toStoreQueue = queues.declare(
                         "vacancies-to-store", false, false, false, null
                 );
-                Consumer consumer = new PlainConsumer(connection, toStoreQueue, new VacancyStoreJob(vacancies));
+                queues.declare(
+                        "vacancies-to-notify", false, false, false, null
+                ).bind(exchange, "to-notify");
+
+                Producer producer = new PlainProducer(connection, exchange, "to-notify");
+
+                Consumer consumer = new PlainConsumer(connection, toStoreQueue, new VacancyStoreJob(vacancies, producer));
                 consumer.startConsuming();
             } catch (IOException | TimeoutException e) {
                 throw new RuntimeException(e);

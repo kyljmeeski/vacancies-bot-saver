@@ -17,7 +17,7 @@ public class Vacancies {
         this.vacancies = vacancies;
     }
 
-    public void add(Vacancy vacancy) {
+    public boolean add(Vacancy vacancy) {
         Document document = new Document("_id", vacancy.id());
         vacancy.title().ifPresent(title -> document.append("title", title));
         vacancy.company().ifPresent(company -> document.append("company", company));
@@ -29,8 +29,10 @@ public class Vacancies {
         try {
             vacancies.insertOne(document);
             System.out.println(vacancy.id() + " saved to db");
+            return true;
         } catch (MongoWriteException exception) {
             System.out.println(vacancy.id() + " is already in db");
+            return false;
         }
     }
 
