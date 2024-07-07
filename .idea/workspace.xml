@@ -4,20 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0464311-58ce-4324-ac0d-0c6fae0d5d67" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="d0464311-58ce-4324-ac0d-0c6fae0d5d67" name="Changes" comment="feat: establish connection to MongoDB; get database and pass to vacancies; create declare queue &quot;vacancies-to-store&quot;, and start consuming it as defined in VacancyStoreJob">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/Vacancies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/Vacancies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/Vacancy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/Vacancy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/VacancyStoreJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kyljmeeski/vacanciesbot/saver/VacancyStoreJob.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2itqMgQ9i17zRYEF9r0ndtlH3YH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -26,11 +37,40 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Notification.DisplayName-DoNotAsk-Vcs Notifications": "VCS notifications",
+    "Notification.DoNotAsk-Vcs Notifications": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "/Users/mac/portfolio/projects/vacancies-bot/saver/src/main/java/com/kyljmeeski/vacanciesbot/saver/Main.java"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.kyljmeeski.vacanciesbot.saver" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.kyljmeeski.vacanciesbot.saver.Main" />
+      <module name="saver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kyljmeeski.vacanciesbot.saver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -40,6 +80,102 @@
       <option name="presentableId" value="Default" />
       <updated>1720320174933</updated>
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1720320370539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720320370539</updated>
+    </task>
+    <task id="LOCAL-00002" summary="dep: add junit, mongo-db">
+      <option name="closed" value="true" />
+      <created>1720320619794</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720320619794</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: setup RabbitMQ connection factory">
+      <option name="closed" value="true" />
+      <created>1720320670747</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720320670747</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: declare vacancies-to-store queue, create consumer of this queue">
+      <option name="closed" value="true" />
+      <created>1720320977307</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720320977307</updated>
+    </task>
+    <task id="LOCAL-00005" summary="dep: add gson">
+      <option name="closed" value="true" />
+      <created>1720330298144</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720330298144</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: create Vacancy">
+      <option name="closed" value="true" />
+      <created>1720330352030</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720330352030</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: create Vacancies">
+      <option name="closed" value="true" />
+      <created>1720330358571</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720330358571</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: update VacancyStoreJob">
+      <option name="closed" value="true" />
+      <created>1720330378340</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720330378340</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: establish connection to MongoDB; get database and pass to vacancies; create declare queue &quot;vacancies-to-store&quot;, and start consuming it as defined in VacancyStoreJob">
+      <option name="closed" value="true" />
+      <created>1720330490347</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1720330490347</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="dep: add junit, mongo-db" />
+    <MESSAGE value="feat: setup RabbitMQ connection factory" />
+    <MESSAGE value="feat: declare vacancies-to-store queue, create consumer of this queue" />
+    <MESSAGE value="dep: add gson" />
+    <MESSAGE value="feat: create Vacancy" />
+    <MESSAGE value="feat: create Vacancies" />
+    <MESSAGE value="feat: update VacancyStoreJob" />
+    <MESSAGE value="feat: establish connection to MongoDB; get database and pass to vacancies; create declare queue &quot;vacancies-to-store&quot;, and start consuming it as defined in VacancyStoreJob" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: establish connection to MongoDB; get database and pass to vacancies; create declare queue &quot;vacancies-to-store&quot;, and start consuming it as defined in VacancyStoreJob" />
   </component>
 </project>
